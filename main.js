@@ -44,21 +44,20 @@ class Circle{
 
 }
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 5; i++) {
   console.log(canvas.height)
   let radius = generateRandomBetween(10, 50);
   let x = generateRandomBetween(radius, canvas.width - radius );
   let y = generateRandomBetween(radius, canvas.height- radius);
   let circle = new Circle(x, y, radius, 'red');
-  for (let j = 0; j < circleArray.length; j++) {
-    if(x + radius > circleArray[j].x - circleArray[j].radius   && x - radius < circleArray[j].x + circleArray[j].radius){
-      if (circle + radius > circleArray[j].y - circleArray[j].radius   && circle - radius < circleArray[j].y + circleArray[j].radius) {
-        console.log('toched')
+  for (let i = 1; i < circleArray.length; i++) {
+    if(circle.x + circle.radius > circleArray[i].x - circleArray[i].radius   && circle.x - circle.radius < circleArray[i].x + circleArray[i].radius){
+      if (circle.y + circle.radius > circleArray[i].y - circleArray[i].radius   && circle.y - circle.radius < circleArray[i].y + circleArray[i].radius) {
+        console.log('Circle Touching')
       }
     }  
     
   }
-  circle = new Circle(x, y, radius, 'red');
   circleArray.push(circle);
   
 }
